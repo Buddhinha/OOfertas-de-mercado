@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualização de Panfletos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+
+        /* Estilos para as miniaturas de panfletos */
+        .panfletos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .panfleto {
+            width: 250px; /* Tamanho ideal para visualização rápida */
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .panfleto:hover {
+            transform: scale(1.05); /* Efeito ao passar o mouse */
+        }
+
+        /* Estilos para o modal (janela pop-up) */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .modal-content {
+            margin: 15% auto;
+            padding: 20px;
+            max-width: 80%;
+            text-align: center;
+        }
+
+        .modal img {
+            width: 100%;
+            height: auto;
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        .botãovoltador{
+            text-align: start;
+        }
+
+        .rodape {
+    background-color: orangered;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+/* Links do rodapé (opcional) */
+.rodape a {     
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+        
+    </style>
+</head>
+<body> <div class="botãovoltador">
+    <a href="https://buddhinha.github.io/Ofertas-de-mercado/index.html">
+        <button><h1>voltar</h1></button></a>
+</div>
+   <h1>Ofertas Dotta</h1>
+    <!-- Container dos panfletos -->
+    <div class="panfletos">
+        <!-- Exemplo de panfleto 1 -->
+        <img src="https://encurtador.com.br/iLZA8" alt="Panfleto 1" class="panfleto" onclick="abrirModal(this.src)">
+        
+        <!-- Exemplo de panfleto 2 -->
+        <img src="https://encurtador.com.br/hQmjL" alt="Panfleto 2" class="panfleto" onclick="abrirModal(this.src)">
+        
+        <!-- Adicione mais panfletos aqui -->
+    </div>
+
+    <!-- Modal para exibição em tamanho maior -->
+    <div id="modalPanfleto" class="modal">
+        <span class="close" onclick="fecharModal()">&times;</span>
+        <div class="modal-content">
+            <img id="imgModal" src="" alt="Visualização do Panfleto">
+        </div>
+    </div>
+
+    <footer class="rodape">
+        &copy; 2024 Todos os direitos reservados.
+        <br>
+        <a href="#">Política de Privacidade</a> | <a href="#">Termos de Uso</a>
+    </footer>
+
+    <script>
+        // Função para abrir o modal e mostrar o panfleto em tamanho maior
+        function abrirModal(src) {
+            document.getElementById("imgModal").src = src;
+            document.getElementById("modalPanfleto").style.display = "block";
+        }
+
+        // Função para fechar o modal
+        function fecharModal() {
+            document.getElementById("modalPanfleto").style.display = "none";
+        }
+    </script>
+
+</body>
+</html>
